@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Controllers;
+namespace r24q1.Controllers;
 
 [ApiController]
 [Route("clientes/")]
