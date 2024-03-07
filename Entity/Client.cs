@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using Org.BouncyCastle.Security;
 
 namespace r24q1.Entity;
 
@@ -26,6 +27,13 @@ public class Client
 
     public void Withdraw(int amount)
     {
+        var oldValue = Balance;
         Balance -= amount;
+        var unsingBalance = Balance * (-1);
+        if (unsingBalance > Limit)
+        {
+            Balance = oldValue;
+            throw new InvalidParameterException("O valor de saldo não pode ser maior que o limite");
+        }
     }
 }
