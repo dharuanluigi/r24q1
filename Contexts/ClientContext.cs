@@ -11,6 +11,9 @@ public class ClientContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseMySQL("server=localhost;uid=root;pwd=Brasil123;database=r24q1;sslmode=none;");
+        optionsBuilder
+        .LogTo(Console.WriteLine)
+        .EnableSensitiveDataLogging()
+        .UseMySQL("server=localhost;uid=root;pwd=Brasil123;database=r24q1;sslmode=none;");
     }
 }
